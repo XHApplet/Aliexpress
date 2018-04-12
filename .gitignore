@@ -1,0 +1,7 @@
+*.pyc
+Config
+Downloads
+pubcode
+*.log
+*.html
+*.xls
