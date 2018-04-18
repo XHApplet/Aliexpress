@@ -8,10 +8,11 @@
 
 import os
 
-import mycrawler
-import mywidget
+
 
 __version__ = "trunk"
+
+import mywidget
 
 def InitPubCode():
     if os.path.exists("pubcode"):
@@ -25,8 +26,6 @@ def InitPubCode():
 
 def start():
     InitPubCode()
-    # obj = mycrawler.CAliExpress()
-    # obj.Start()
     mywidget.Show()
 
 

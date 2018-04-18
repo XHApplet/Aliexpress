@@ -33,7 +33,8 @@ class CMyWidget(QtWidgets.QMainWindow, mainwidget.Ui_MainWindow):
             url = "https://www.aliexpress.com/category/100005652/bakeware/"
         else:
             url = "https://www.aliexpress.com/category/1541/home-storage-organization/"
-        print(url)
+        self.m_ALiExpress = mycrawler.CAliExpress()
+        self.m_ALiExpress.SetUrlStart(url)
 
 
 def Show():

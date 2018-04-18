@@ -17,8 +17,8 @@ from bs4 import BeautifulSoup
 
 
 class CAliExpress(pubcrawler.CPubCrawler):
-    # m_Flag = misc.Time2Str(timeformat="%Y-%m-%d")
-    m_Flag = "aliexpress"
+    m_Flag = misc.Time2Str(timeformat="%Y-%m-%d")
+    # m_Flag = "aliexpress"
     m_Url = "https://www.aliexpress.com/category/100005652/bakeware/"
     m_DelList = ["(", ")", " ", "Orders", "Order"]
     m_MyHeader = {
@@ -45,10 +45,10 @@ class CAliExpress(pubcrawler.CPubCrawler):
     def SetUrlStart(self, url):
         self.m_Url = url
         self.Start()
+        self.MySorted()
 
 
-    def Start(self):
-        super(CAliExpress, self).Start()
+    def MySorted(self):
         lst = []
         for url, info in self.m_DoneInfo.items():
             if not "xxoo" in info:
