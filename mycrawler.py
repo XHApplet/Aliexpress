@@ -11,6 +11,7 @@ https://www.aliexpress.com/category/1541/home-storage-organization/2.html
 
 import re
 import xlwt
+import webbrowser
 
 from pubcode import misc, pubcrawler
 from bs4 import BeautifulSoup
@@ -29,6 +30,7 @@ class CAliExpress(pubcrawler.CPubCrawler):
         "Upgrade-Insecure-Requests" :"1",
     }
     m_DebugPrint = True
+    m_Check = False
 
     def _CustomInit(self):
         for x in range(1, 101):
@@ -152,5 +154,8 @@ class CAliExpress(pubcrawler.CPubCrawler):
         dPageInfo = self.m_DoingUrl.pop(pageurl)
         if iNum:
             self.m_DoneInfo[pageurl] = dPageInfo
-        else:
+        elif not self.m_Check:
             print("error %s" % pageurl)
+            self.m_FailUrl[pageurl] = dPageInfo
+            webbrowser.open(pageurl)
+            self.m_Check = True
